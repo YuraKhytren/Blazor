@@ -1,0 +1,22 @@
+﻿@page "/DayReport"
+<div class="row">
+    <div class="col">
+        <h1>Day Report</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <span>Chose Date:</span>
+    </div>
+    <div class="col-3">
+        <input type="date"  @bind-value="@DateFrom">
+    </div>
+    <button class="btn btn-success" @onclick="GetReport">Report</button>
+</div>
+@if (showTable)
+{
+    <ReportListTable Report="report"/>
+    
+}
+
+

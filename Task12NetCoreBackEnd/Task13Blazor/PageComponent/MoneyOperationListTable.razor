@@ -1,0 +1,38 @@
+﻿<div class="table-responsive">
+    <table class="table table-striped table-primary text-center">
+        <thead>
+            <tr>
+                <th class="col-5">Description</th>
+                <th class="col-2"><span class="text-success">Money</span></th>
+                <th class="col-2"><span class="text-info">Date</span></th>
+                <th class="col-2"><span class="text-primary">Update</span></th>
+                <th class="col-1"><span class="text-danger">Delete</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (moneyOperationModels == null)
+            {
+            <tr>
+                <th>No item in array</th>
+            </tr>
+            }
+           else 
+            {
+                @foreach (var item in moneyOperationModels)
+                {
+
+
+                    <tr>
+                        <th>@item.Description</th>
+                        <th>@item.Money</th>
+                        <th>@item.Date.ToString("dd.MM.yyyy")</th>
+                        <th><a href="/MoneyOperation/Edit/@item.Id">Update</a></th>
+                        <th><button class="btn btn-close" @onclick="(() => Delete(item.Id))"></button></th>
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

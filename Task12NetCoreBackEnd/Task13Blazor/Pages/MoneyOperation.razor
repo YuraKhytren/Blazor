@@ -1,0 +1,17 @@
+﻿@page "/MoneyOperation/{FinanceTypeId:int}"
+
+<div class="row">
+    <div class="col text-center text-primary">
+        <h1>My Finance Manager Site</h1>
+    </div>
+   <MoneyOperationListTable FinTypeId="FinanceTypeId" />
+    <div class="row">
+        <div class="col-2 text-center">
+            <a class="btn btn-primary" href="/MoneyOperation/Create/@FinanceTypeId">Add Money Operation</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int FinanceTypeId { get; set; }
+}

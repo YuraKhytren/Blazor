@@ -1,0 +1,27 @@
+﻿<div class="row">
+    <div class="col-6">
+        <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>Name:</label>
+                <div>
+                    <InputText class="form-control" @bind-Value="Model.Name" />
+                    <ValidationMessage For="(() => Model.Name)" />
+                </div>
+                <label>Income Or Uncome:</label>
+                <div>
+                    <InputSelect class="form-select" @bind-Value="Model.Income" > 
+                        <option id="income" value="true"> Income</option>  
+                        <option id="uncome" value="false">Uncome</option>    
+                    </InputSelect>
+                    <ValidationMessage For="(() => Model.Income)" />
+                </div>
+            </div>
+            <button class="btn btn-success col-2">Save</button>
+        </EditForm>
+    </div>
+</div>
+@code {
+    [Parameter] public FinanceTypeModel Model { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+}

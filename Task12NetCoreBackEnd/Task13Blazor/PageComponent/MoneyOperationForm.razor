@@ -1,0 +1,33 @@
+﻿<div class="row">
+    <div class="col-6">
+        <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+                
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>Description:</label>
+                <div>
+                    <InputText class="form-control" @bind-Value="Model.Description" />
+                    <ValidationMessage For="(() => Model.Description)" />
+                </div>
+                <label>Money:</label>
+                <div>
+                   <InputNumber class="form-control" @bind-Value="Model.Money" />
+                    <ValidationMessage For="(() => Model.Money)" />
+                        <label>Date:</label>
+                <div>
+                   <InputDate class="form-control" @bind-Value="Model.Date" />
+                    <ValidationMessage For="(() => Model.Date)" />
+                </div>
+                </div>
+            </div>
+            <button class="btn btn-success col-2">Save</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    [Parameter] public MoneyOperationModel  Model { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+    [Parameter] public int FinanceTypeId { get; set; }
+}
+

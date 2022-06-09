@@ -1,0 +1,45 @@
+﻿
+
+<div class="table-responsive">
+    <table class="table table-striped table-primary text-center">
+        <thead>
+            <tr>
+                <th class="col-6">Name</th>
+                <th class="col-2"><span class="text-success">Income</span>/<spanc class="text-danger">Uncome</spanc></th>
+                <th class="col-2"><span class="text-primary">Update</span></th>
+                <th class="col-2"><span class="text-danger">Delete</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (financeTypes == null)
+            {
+            <tr>
+                <th>No item in array</th>
+            </tr>
+            }
+           else 
+            {
+                @foreach (var item in financeTypes)
+                {
+
+
+                    <tr>
+                        <th><a href="/MoneyOperation/@item.Id">@item.Name</a></th>
+                        @if (@item.Income == true)
+                        {
+                            <th class="text-success">Income</th>
+                        }
+                        else
+                        {
+                            <th class="text-danger">Uncome</th>
+                        }
+                        <th><a href="/FinanceType/Edit/@item.Id">Update</a></th>
+                        <th><button class="btn btn-close" @onclick="(() => Delete(item.Id))"></button></th>
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
